@@ -53,16 +53,29 @@ describe('API Routes', () => {
       .send({title: 'oh', body: 'yeah'})
       .end((err, response) => {
         response.should.have.status(201);
-        response.should.equal(3);
+        response.body.id.should.equal(3);
         done();
       })
-
+    })
+    it('should not post if params are missing', (done) => {
+      chai.request(server)
+      .post('/ideas')
+      .send({title: 'oh'})
+      .end((err, response) => {
+        response.should.have.status(422);
+        done()
+      })
     })
   })
 
   describe('DELETE idea', () => {
     it('should delete an idea from the database', (done) => {
- 
+      chai.request(server)
+      .delete('/ideas/1')
+      .end((err, response) => {
+        response.should.have.status(200);
+        done()
+      })
     })
   })
 
