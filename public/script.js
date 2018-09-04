@@ -21,17 +21,20 @@ $('form').submit((event) => {
         <p class="card-body">${body}</p>
       </div>
       `
-      $('.card-container').append(card); 
+      $('.card-container').append(card);
+      $('#item-title, #item-body').val(''); 
     })
   .catch(err => console.log(err))
 })
 
-$('.card-container').on('click','.delete-button', (event) => {
+$('.card-container').on('click','.delete-button', function(event) {
   const id = event.target.id;
-  console.log(id);
+  $(this).parent().remove();
+
   fetch(`./ideas/${id}`, {
     method: 'DELETE',
   })
+  
 
 })
 
