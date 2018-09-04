@@ -23,7 +23,7 @@ module.exports = {
     seeds: {
       directory: './db/seeds/test'
     }
-  }
+  },
 
   production: {
     client: 'pg',
