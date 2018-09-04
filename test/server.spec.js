@@ -59,4 +59,11 @@ describe('API Routes', () => {
 
     })
   })
+
+  describe('DELETE idea', () => {
+    it('should delete an idea from the database', (done) => {
+ 
+    })
+  })
+
 })

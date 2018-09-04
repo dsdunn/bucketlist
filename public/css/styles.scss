@@ -1,0 +1,35 @@
+form {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 30vh;
+  margin: auto;
+  border: 1px solid black;
+}
+
+.title {
+  text-align: center;
+}
+
+textarea {
+  height: 100%;
+  margin: 2% 0;
+}
+
+form button {
+  width: 45%;
+  height: 2em;
+  margin: auto auto 2% auto;
+  background-color: lightgreen;
+}
+
+.card-container {
+  padding: 8%;
+}
+
+.card {
+  margin: 5%;
+  padding: 2%;
+  border: 1px solid gray;
+  font-size: 120%;
+}
