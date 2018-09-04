@@ -14,9 +14,13 @@ app.set('port', process.env.PORT || 3000);
 app.locals.title = 'Bucket List';
 
 
+app.get('/ideas', (request, response) => {
+  database.select().from('ideas').timeout(1000)
+    .then(ideas => response.status(200).json(ideas))
+})
+
 app.post('/ideas', (request, response) => {
   const info = request.body;
-  console.log(info);
 
   for (let requiredParameter of ['title', 'body']) {
     if (!info[requiredParameter]) {
