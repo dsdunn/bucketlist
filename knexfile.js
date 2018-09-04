@@ -14,6 +14,17 @@ module.exports = {
     useNullAsDefault: true
   },
 
+  test: {
+    client: 'pg',
+    connection: 'postgress://localhost/test_bucketlist',
+    migrations: {
+      directory: './db/migrations'
+    },
+    seeds: {
+      directory: './db/seeds/test'
+    }
+  }
+
   production: {
     client: 'pg',
     connection: process.env.DATABASE_URL + `?ssl=true`,
