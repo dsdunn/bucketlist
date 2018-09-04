@@ -33,6 +33,12 @@ app.post('/ideas', (request, response) => {
     .catch(err => response.status(500).json({ err }));
 })
 
+app.delete('/ideas/:id', (request, response) => {
+  database('ideas').where('id', request.params.id).del()
+  .then(response.status(200).send('idea successfully deleted'))
+  .catch(err => response.status(500).send(err))
+})
+
 
 
 

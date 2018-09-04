@@ -1,3 +1,9 @@
+$(window).load(() => {
+  fetch('/ideas', (request,response) => {
+    
+  })
+})
+
 
 $('form').submit((event) => {
   event.preventDefault();
@@ -32,10 +38,9 @@ $('.card-container').on('click','.delete-button', function(event) {
   $(this).parent().remove();
 
   fetch(`./ideas/${id}`, {
-    method: 'DELETE',
+    method: 'DELETE'
   })
   
-
 })
 
 
