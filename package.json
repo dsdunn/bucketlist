@@ -1,0 +1,29 @@
+{
+  "name": "bucketlist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dsdunn/bucketlist.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dsdunn/bucketlist/issues"
+  },
+  "homepage": "https://github.com/dsdunn/bucketlist#readme",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^4.2.0",
+    "express": "^4.16.3",
+    "knex": "^0.15.2",
+    "mocha": "^5.2.0"
+  }
+}
