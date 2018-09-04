@@ -9,6 +9,12 @@ app.use(express.static('public'));
 app.set('port', process.env.PORT || 3000);
 app.locals.title = 'Bucket List';
 
+app.post('/ideas', (request, response) => {
+  const info = request.body;
+  console.log(info);
+  response.json('posted');
+})
+
 
 
 

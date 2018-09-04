@@ -1,3 +1,5 @@
+console.log('script running');
+
 $('form').submit((event) => {
   event.preventDefault();
   const title = $('#item-title').val();
