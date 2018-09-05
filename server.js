@@ -39,7 +39,13 @@ app.post('/ideas', (request, response) => {
 
 app.delete('/ideas/:id', (request, response) => {
   database('ideas').where('id', request.params.id).del()
-  .then(response.status(200).send('idea successfully deleted'))
+  .then(result => {
+    if(!result) {
+      response.status(404).json('no such idea');
+    } else {
+      response.status(200).json(`${result} idea deleted`);
+    }
+  })
   .catch(err => response.status(500).send(err))
 })
 
