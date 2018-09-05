@@ -39,9 +39,13 @@ describe('API Routes', () => {
       .end((err, response) => {
         response.should.have.status(200);
         response.should.be.json;
+        response.body[0].should.have.property('id');
+        response.body[0].id.should.equal(1);
         response.body[0].should.have.property('title');
         response.body[0].title.should.equal('Dude');
-        done()
+        response.body[0].should.have.property('body');
+        response.body[0].body.should.equal('where\'s my car?');
+        done();
       })
     })
   })
@@ -53,6 +57,7 @@ describe('API Routes', () => {
       .send({title: 'oh', body: 'yeah'})
       .end((err, response) => {
         response.should.have.status(201);
+        response.body.should.have.property('id');
         response.body.id.should.equal(3);
         done();
       })
@@ -63,7 +68,10 @@ describe('API Routes', () => {
       .send({title: 'oh'})
       .end((err, response) => {
         response.should.have.status(422);
-        done()
+        response.body.should.be.a('object');
+        response.body.should.have.property('error');
+        response.body.error.should.equal('Expected format: { title: <String>, body: <String> }. You\'re missing a "body" property.')
+        done();
       })
     })
   })
@@ -74,7 +82,20 @@ describe('API Routes', () => {
       .delete('/ideas/1')
       .end((err, response) => {
         response.should.have.status(200);
-        done()
+        response.body.should.be.a('string');
+        response.body.should.equal('1 idea deleted');
+        done();
+      })
+    })
+
+    it('should return an error message if no such id exists', (done) => {
+      chai.request(server)
+      .delete('/ideas/5')
+      .end((err, response) => {
+        response.should.have.status(404);
+        response.body.should.be.a('string');
+        response.body.should.equal('no such idea');
+        done();
       })
     })
   })

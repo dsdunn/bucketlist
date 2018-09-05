@@ -5,7 +5,7 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('ideas').insert([
-        { title: 'Dude', body: 'where\s my car?'},
+        { title: 'Dude', body: 'where\'s my car?'},
         { title: 'sweet', body: 'it\s on the lawn'}
       ]);
     });
